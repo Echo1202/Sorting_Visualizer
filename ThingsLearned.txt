@@ -1,0 +1,25 @@
+PyQt5 and Widgets:
+    - there are a variety of widgets we can add
+    - quite easy to work with, commands are straight forward and
+
+Creating and removing widgets dynamically:
+    - we can use a for loop to create/add widgets to our UI as needed
+        * what's the catch?
+                ! we need to automate the naming of each widget
+                ! we need to make sure that each widget is able to generate onto the UI
+                ! we need to set up a unordered map to record:
+                        1. the value of each "bar"
+                        2. the location of each "bar"
+    - this leads to a time complexity of O(n) which is not quite ideal
+    - some tradeoffs:
+            1. since we are working with a relatively small amount of data, the current time complexity is okay
+            2. unfortunately, our space complexity is quite large:
+                    - 1 array to store generated random numbers
+                    - 1 array (technically a dictionary since each element of the list contains all the details of each bar)
+                      that stores in each bar in an ordered list
+            3. we can make use of a hashtable in order to store our data
+                    - since we are using relatively limited data and since all the elements are integers, an array is more
+                      efficient
+                    - setting up a hash table in this kind of program where the size of the hash being used can vary based
+                      on the value of the slider can lead to space complexity as there will be some spaces in the hash
+                      not being used, even though space has been set up for it
